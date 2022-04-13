@@ -1,11 +1,11 @@
-import {Suspense, useContext, useState, useTransition} from "react";
+import { Suspense, useContext, useState, useTransition } from "react";
 
 import CityDetail from "./CityDetail";
-import {ResourceContext} from "../App";
+import { StoreContext } from "../StoreContext";
 
 function CityListComp() {
-  const resource = useContext(ResourceContext);
-  const cities = resource.cities.read();
+  const context = useContext(StoreContext);
+  const cities = context.resource.cities.read();
   return (
     <div className="col-3">
       {cities.map((city) => {
@@ -25,9 +25,8 @@ function CityListComp() {
         );
       })}
     </div>
-  )
+  );
 }
-
 
 export default function CityList() {
   // const [selectedCityId, setSelectedCityId] = useState();
@@ -37,15 +36,10 @@ export default function CityList() {
   //   suspense: true,
   // });
 
-
-  
-  
-
   return (
     <Suspense fallback={<div>Loading CityShowData...</div>}>
-      
       <CityListComp />
-      
+
       {/*<CityDetail*/}
       {/*  selectedCityId={selectedCityId}*/}
       {/*  isPending={isPending}*/}

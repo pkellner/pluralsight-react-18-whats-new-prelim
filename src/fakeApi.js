@@ -94,6 +94,6 @@ function fetchCity(cityId) {
           ].filter((a) => a.id == cityId)
         );
       }
-    }, 3000);
+    }, 4000);
   });
 }

@@ -1,23 +1,25 @@
-import { Suspense } from "react";
+import { Suspense, useContext } from "react";
+import { StoreContext } from "../StoreContext";
 
-export default function CityDetail({ selectedCityId, isPending, cities }) {
-  const selectedCityIdLocal = selectedCityId
+export default function CityDetail() {
+  const { resource } = useContext(StoreContext);
+
+  const city = resource.city.read();
+
+  return <div>{JSON.stringify(city)}</div>;
+}
+
+/*
+ const selectedCityIdLocal = selectedCityId
     ? selectedCityId
     : cities && !selectedCityId
     ? cities[0].id
     : undefined;
 
-  //const url = `${restBase}/api/city/${selectedCityIdLocal}`;
-
-  const city = [];
-
-  return isPending ? (
-    <div className="col-9">City Detail Loading...</div>
-  ) : (
-    <div className="col-9">
-      <Suspense fallback={<div>City DETAIL</div>}>
-        <div>{JSON.stringify(city)}</div>
-      </Suspense>
-    </div>
+  console.log(
+    `CityDetail: selectedCityId: ${selectedCityId}   isPending: ${
+      isPending ? "true" : "false"
+    }`
   );
-}
+
+ */

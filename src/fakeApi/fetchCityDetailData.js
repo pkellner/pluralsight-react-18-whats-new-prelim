@@ -49,15 +49,15 @@ const fetchCityInfo = (cityId) => {
     setTimeout(() => {
       resolve(
         cities
-          .filter((a) => a.id == cityId)
+          .filter((a) => a.id === cityId)
           .map(function (rec) {
             return {
               id: rec.id,
               name: rec.city,
               state: rec.state,
             };
-          })
-      );
+          })[0]
+      )
     }, 1500);
   });
 };
@@ -67,15 +67,15 @@ const fetchCityStats = (cityId) => {
     setTimeout(() => {
       resolve(
         cities
-          .filter((a) => a.id == cityId)
+          .filter((a) => a.id === cityId)
           .map(function (rec) {
             return {
               id: rec.id,
               population: rec.population,
               growth: rec.growth_from_2000_to_2013,
             };
-          })
-      );
+          })[0]
+      )
     }, 2500);
   });
 };
@@ -85,73 +85,15 @@ const fetchCityLocation = (cityId) => {
     setTimeout(() => {
       resolve(
         cities
-          .filter((a) => a.id == cityId)
+          .filter((a) => a.id === cityId)
           .map(function (rec) {
             return {
               id: rec.id,
               latitude: rec.latitude,
               longitude: rec.longitude,
             };
-          })
-      );
+          })[0]
+      )
     }, 500);
   });
 };
-
-function fetchCities() {
-  console.log("fetch cities...");
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log("fetched cities");
-      resolve([
-        {
-          id: 6,
-          city: "Chicago",
-          state: "Illinois",
-        },
-        {
-          id: 5,
-          city: "Los Angeles",
-          state: "California",
-        },
-        {
-          id: 4,
-          city: "New York",
-          state: "New York",
-        },
-      ]);
-    }, 3000);
-  });
-}
-
-function fetchCity(cityId) {
-  console.log(`fetch city ${cityId}...`);
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log(`fetched cityId: ${cityId}`);
-      if (!cityId) {
-        resolve([]);
-      } else {
-        resolve(
-          [
-            {
-              id: 6,
-              city: "Chicago",
-              state: "Illinois",
-            },
-            {
-              id: 5,
-              city: "Los Angeles",
-              state: "California",
-            },
-            {
-              id: 4,
-              city: "New York",
-              state: "New York",
-            },
-          ].filter((a) => a.id == cityId)
-        );
-      }
-    }, 4000);
-  });
-}

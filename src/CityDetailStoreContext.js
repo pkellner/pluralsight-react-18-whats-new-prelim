@@ -1,10 +1,10 @@
 import React, { createContext, useState, useTransition } from "react";
-import {fetchCityDetailData} from "./fakeApi/fetchCityDetailData";
+import { fetchCityDetailData } from "./fakeApi/fetchCityDetailData";
 
 export const CityDetailStoreContext = createContext();
 
-function CityDetailStoreProvider({ children }) {
-  const [resourceCityDetail, setResourceCityDetail] = useState(fetchCityDetailData(1));
+function CityDetailStoreProvider({ children, initialCityId }) {
+  const [resourceCityDetail, setResourceCityDetail] = useState(fetchCityDetailData(initialCityId));
   const [selectedCityId, setSelectedCityId] = useState();
   const [isPending, startTransition] = useTransition();
   

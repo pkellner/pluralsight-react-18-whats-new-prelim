@@ -27,7 +27,7 @@ export default function CityList({ children }) {
   const cities = resourceCityList.cities.read();
 
   return (
-    <CityDetailStoreProvider>
+    <CityDetailStoreProvider initialCityId={cities[0].id}>
       <div className="col-3">
         {cities.map((city) => {
           return (

@@ -1,15 +1,16 @@
-import { useContext, Suspense, SuspenseList } from "react";
+import { Suspense, useContext } from "react";
 import { CityDetailStoreContext } from "../CityDetailStoreContext";
 
 function CityInfo() {
   const { resourceCityDetail } = useContext(CityDetailStoreContext);
   const city = resourceCityDetail.cityInfo.read();
   return (
-    <div className="border border-primary" >
-      name: {city[0].name}<br/>
-      state: {city[0].state}
+    <div className="border border-primary">
+      name: {city.name}
+      <br />
+      state: {city.state}
     </div>
-  )
+  );
   //return <div>{JSON.stringify(city)}</div>;
 }
 
@@ -18,9 +19,9 @@ function CityStats() {
   const city = resourceCityDetail.cityStats.read();
   return (
     <div className="border border-primary" >
-      City: {city[0].population}
+      City: {city.population}
       <br />
-      Growth Since 2001: {city[0].growth}
+      Growth Since 2001: {city.growth}
     </div>
   );
 }
@@ -30,8 +31,8 @@ function CityLocation() {
   const city = resourceCityDetail.cityLocation.read();
   return (
     <div className="border border-primary" >
-      latitude: {city[0].latitude}<br/>
-      longitude: {city[0].longitude}
+      latitude: {city.latitude}<br/>
+      longitude: {city.longitude}
     </div>
   )
   //return <div>{JSON.stringify(city)}</div>;

@@ -1,11 +1,8 @@
-import { Suspense, useContext } from "react";
+import { Suspense } from "react";
 import CityHeader from "./CityHeader";
 import CityList from "./CityList";
 import CityDetail from "./CityDetail";
-import {
-  CityListStoreContext,
-  CityListStoreProvider,
-} from "../CityListStoreContext";
+import { CityListStoreProvider } from "../CityListStoreContext";
 import CityDisplayCount from "./CityDisplayCount";
 
 export default function CityListAndDetail() {

@@ -2,10 +2,8 @@ import { useContext } from "react";
 
 import { CityListStoreContext } from "../CityListStoreContext";
 
-
 export default function CityList({ children, displayCount }) {
-  const { resourceCityList } =
-    useContext(CityListStoreContext);
+  const { resourceCityList } = useContext(CityListStoreContext);
   const cities = resourceCityList.cities.read();
 
   return (

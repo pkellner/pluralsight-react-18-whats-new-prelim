@@ -1,4 +1,4 @@
-import React, {createContext, useReducer, useState, useTransition} from "react";
+import React, { createContext, useState, useTransition } from "react";
 import { fetchCityListData } from "./fakeApi/fetchCityListData";
 
 export const CityListStoreContext = createContext();

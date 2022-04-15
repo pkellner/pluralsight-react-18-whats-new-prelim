@@ -1,4 +1,4 @@
-import { Suspense, useContext } from "react";
+import { useContext } from "react";
 import { CityListStoreContext } from "../CityListStoreContext";
 
 export default function CityDetail() {

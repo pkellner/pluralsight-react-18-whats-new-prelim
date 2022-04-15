@@ -1,4 +1,4 @@
-export function fetchData(cityId = undefined) {
+export function fetchCityDetailData(cityId = undefined) {
   let citiesPromise = fetchCities();
   let cityPromise = fetchCity(cityId);
   return {

@@ -1,10 +1,11 @@
 import { Suspense, useContext } from "react";
-import { StoreContext } from "../StoreContext";
+import { CityListStoreContext } from "../CityListStoreContext";
 
 export default function CityDetail() {
-  const { resource } = useContext(StoreContext);
+  const { resource } = useContext(CityListStoreContext);
 
-  const city = resource.city.read();
+  //const city = resource.city.read();
+  const city = { an: 101 };
 
   return <div>{JSON.stringify(city)}</div>;
 }

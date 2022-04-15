@@ -1,12 +1,12 @@
-import { Suspense, useContext, useState, useTransition } from "react";
+import { useContext } from "react";
 
-import { StoreContext } from "../StoreContext";
-import { fetchData } from "../fakeApi";
+import { CityListStoreContext } from "../CityListStoreContext";
 
-export default function CityList({ children }) {
-  const { resource, setResource, setSelectedCityId, startTransition } =
-    useContext(StoreContext);
-  const cities = resource.cities.read();
+
+export default function CityList({ children, displayCount }) {
+  const { resourceCityList } =
+    useContext(CityListStoreContext);
+  const cities = resourceCityList.cities.read();
 
   return (
     <>
@@ -18,7 +18,7 @@ export default function CityList({ children }) {
                 onClick={(e) => {
                   e.preventDefault();
                   console.log("click event: fired");
-                  setResource(fetchData(city.id));
+                  //setResource(fetchCityListData(city.id));
                 }}
               >
                 {city.city}
@@ -31,14 +31,3 @@ export default function CityList({ children }) {
     </>
   );
 }
-
-// const selectedCityIdLocal = city.id
-//   ? selectedCityId
-//   : cities && !selectedCityId
-//     ? cities[0].id
-//     : undefined;
-//
-
-// startTransition(() => {
-//   setSelectedCityId(city.id);
-// });

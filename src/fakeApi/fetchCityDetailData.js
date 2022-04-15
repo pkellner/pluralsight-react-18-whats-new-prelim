@@ -1,9 +1,13 @@
-export function fetchCityDetailData(cityId = undefined) {
-  let citiesPromise = fetchCities();
-  let cityPromise = fetchCity(cityId);
+import { cities } from "../data/cities";
+
+export function fetchCityDetailData(cityId) {
+  let cityInfoPromise = fetchCityInfo(cityId);
+  let cityStatsPromise = fetchCityStats(cityId);
+  let cityLocationPromise = fetchCityLocation(cityId);
   return {
-    cities: wrapPromise(citiesPromise),
-    city: wrapPromise(cityPromise),
+    cityInfo: wrapPromise(cityInfoPromise),
+    cityStats: wrapPromise(cityStatsPromise),
+    cityLocation: wrapPromise(cityLocationPromise),
   };
 }
 
@@ -39,6 +43,60 @@ function wrapPromise(promise) {
     },
   };
 }
+
+const fetchCityInfo = (cityId) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(
+        cities
+          .filter((a) => a.id == cityId)
+          .map(function (rec) {
+            return {
+              id: rec.id,
+              name: rec.city,
+              state: rec.state,
+            };
+          })
+      );
+    }, 1500);
+  });
+};
+
+const fetchCityStats = (cityId) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(
+        cities
+          .filter((a) => a.id == cityId)
+          .map(function (rec) {
+            return {
+              id: rec.id,
+              population: rec.population,
+              growth: rec.growth_from_2000_to_2013,
+            };
+          })
+      );
+    }, 2500);
+  });
+};
+
+const fetchCityLocation = (cityId) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(
+        cities
+          .filter((a) => a.id == cityId)
+          .map(function (rec) {
+            return {
+              id: rec.id,
+              latitude: rec.latitude,
+              longitude: rec.longitude,
+            };
+          })
+      );
+    }, 500);
+  });
+};
 
 function fetchCities() {
   console.log("fetch cities...");

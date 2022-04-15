@@ -1,26 +1,48 @@
-import { useContext } from "react";
-import { CityListStoreContext } from "../CityListStoreContext";
+import { useContext, Suspense } from "react";
+import { CityDetailStoreContext } from "../CityDetailStoreContext";
 
-export default function CityDetail() {
-  const { resource } = useContext(CityListStoreContext);
-
-  //const city = resource.city.read();
-  const city = { an: 101 };
-
-  return <div>{JSON.stringify(city)}</div>;
+function CityInfo() {
+  const { resourceCityDetail } = useContext(CityDetailStoreContext);
+  const city = resourceCityDetail.cityInfo.read();
+  return (
+    <Suspense fallback={<div>Loading CityInfo...</div>}>
+      <div>{JSON.stringify(city)}</div>
+    </Suspense>
+  );
 }
 
-/*
- const selectedCityIdLocal = selectedCityId
-    ? selectedCityId
-    : cities && !selectedCityId
-    ? cities[0].id
-    : undefined;
-
-  console.log(
-    `CityDetail: selectedCityId: ${selectedCityId}   isPending: ${
-      isPending ? "true" : "false"
-    }`
+function CityStats() {
+  const { resourceCityDetail } = useContext(CityDetailStoreContext);
+  const city = resourceCityDetail.cityStats.read();
+  return (
+    <Suspense fallback={<div>Loading CityStats...</div>}>
+      <div>{JSON.stringify(city)}</div>
+    </Suspense>
   );
+}
 
- */
+function CityLocation() {
+  const { resourceCityDetail } = useContext(CityDetailStoreContext);
+  const city = resourceCityDetail.cityLocation.read();
+  return (
+    <Suspense fallback={<div>Loading CityLocation...</div>}>
+      <div>{JSON.stringify(city)}</div>
+    </Suspense>
+  );
+}
+
+export default function CityDetail() {
+  return (
+    <div className="grid">
+      <div className="row">
+        <CityInfo />
+      </div>
+      <div className="row">
+        <CityStats />
+      </div>
+      <div className="row">
+        <CityLocation />
+      </div>
+    </div>
+  );
+}

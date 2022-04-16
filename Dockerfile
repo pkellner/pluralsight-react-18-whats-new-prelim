@@ -17,6 +17,6 @@ RUN npm install
 COPY . /usr/src
 
 RUN npm run build
-EXPOSE 3100
+EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "go"]

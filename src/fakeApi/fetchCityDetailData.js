@@ -1,7 +1,6 @@
 import { cities } from "../data/cities";
 
 export function fetchCityDetailData(cityId) {
-  debugger;
   let cityInfoPromise = fetchCityInfo(cityId);
   let cityStatsPromise = fetchCityStats(cityId);
   let cityLocationPromise = fetchCityLocation(cityId);

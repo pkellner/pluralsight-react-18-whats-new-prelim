@@ -2,8 +2,7 @@ import { useContext } from "react";
 import { CityListStoreContext } from "../CityListStoreContext";
 
 export default function CityDisplayCount() {
-  const { setResourceCityList, displayCount, setDisplayCount } =
-    useContext(CityListStoreContext);
+  const { setDisplayCount } = useContext(CityListStoreContext);
   return (
     <div className="btn-group" role="group" aria-label="Basic example">
       <button

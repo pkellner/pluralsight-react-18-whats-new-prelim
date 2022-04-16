@@ -1,6 +1,7 @@
 import { cities } from "../data/cities";
 
 export function fetchCityDetailData(cityId) {
+  debugger;
   let cityInfoPromise = fetchCityInfo(cityId);
   let cityStatsPromise = fetchCityStats(cityId);
   let cityLocationPromise = fetchCityLocation(cityId);
@@ -58,7 +59,7 @@ const fetchCityInfo = (cityId) => {
             };
           })[0]
       )
-    }, 1500);
+    }, 2000);
   });
 };
 
@@ -94,6 +95,6 @@ const fetchCityLocation = (cityId) => {
             };
           })[0]
       )
-    }, 500);
+    }, 1500);
   });
 };

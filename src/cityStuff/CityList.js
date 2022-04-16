@@ -8,12 +8,11 @@ import {
 
 function CityButton({ city }) {
   const { setCityId } = useContext(CityDetailStoreContext);
-
   return (
     <button
       onClick={(e) => {
         e.preventDefault();
-        console.log("click event: fired");
+        console.log("click event: fired", city.id);
         setCityId(city.id);
       }}
     >
@@ -23,8 +22,8 @@ function CityButton({ city }) {
 }
 
 export default function CityList({ children }) {
-  const { resourceCityList } = useContext(CityListStoreContext);
-  const cities = resourceCityList.cities.read();
+  const { getCities } = useContext(CityListStoreContext);
+  const cities = getCities();
 
   return (
     <CityDetailStoreProvider initialCityId={cities[0].id}>

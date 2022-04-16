@@ -4,7 +4,7 @@ import { CityListStoreContext } from "../CityListStoreContext";
 export default function CityDisplayCount() {
   const { setDisplayCount } = useContext(CityListStoreContext);
   return (
-    <div className="btn-group" role="group" aria-label="Basic example">
+    <div className="btn-group mb-2" role="group" aria-label="Basic example">
       <button
         type="button"
         className="btn btn-secondary"

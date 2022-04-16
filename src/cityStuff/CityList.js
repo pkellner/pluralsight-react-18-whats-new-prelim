@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, Fragment } from "react";
 
 import { CityListStoreContext } from "../CityListStoreContext";
 import {
@@ -10,6 +10,7 @@ function CityButton({ city }) {
   const { setCityId } = useContext(CityDetailStoreContext);
   return (
     <button
+      className="list-group-item list-group-item-action"
       onClick={(e) => {
         e.preventDefault();
         console.log("click event: fired", city.id);
@@ -28,15 +29,24 @@ export default function CityList({ children }) {
   return (
     <CityDetailStoreProvider initialCityId={cities[0].id}>
       <div className="col-3">
-        {cities.map((city) => {
-          return (
-            <div key={city.id}>
-              <CityButton city={city} />
-            </div>
-          );
-        })}
+        <ul className="list-group city--list">
+          <li className="list-group-item active city--header">City list</li>
+          {cities.map((city) => {
+            return (
+              <Fragment key={city.id}>
+                <CityButton city={city} />
+              </Fragment>
+            );
+          })}
+        </ul>
       </div>
-      <div className="col-9">{children}</div>
+
+      <div className="col-9">
+        <div className="city--details">
+          <div className="list-group-item active city--header">City details</div>
+          {children}
+        </div>
+      </div>
     </CityDetailStoreProvider>
   );
 }

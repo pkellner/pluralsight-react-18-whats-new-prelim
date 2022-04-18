@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-// import CityHeader from "./CityHeader";
 import CityList from "./CityList";
 import CityDetail from "./CityDetail";
 import { CityListStoreProvider } from "../CityListStoreContext";
@@ -9,9 +8,8 @@ export default function CityListAndDetail() {
   return (
     <CityListStoreProvider initialDisplayCount={5}>
       <div className="container">
-        <h2>With Suspense</h2>
+        <h2>Suspense in React 18 (Course)</h2>
         <CityDisplayCount />
-        {/* <CityHeader /> */}
         <div className="row">
           <Suspense fallback={<div>Loading...</div>}>
             <CityList>

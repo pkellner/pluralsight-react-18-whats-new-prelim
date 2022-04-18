@@ -1,13 +1,15 @@
 import { useContext } from "react";
-import { CityListStoreContext } from "../CityListStoreContext";
+import { DisplayCountContext } from "../DisplayCountContext";
 
 export default function CityDisplayCount() {
-  const { setDisplayCount } = useContext(CityListStoreContext);
+  const { displayCount, setDisplayCount } = useContext(DisplayCountContext);
   return (
     <div className="btn-group" role="group" aria-label="Basic example">
       <button
         type="button"
-        className="btn btn-secondary"
+        className={
+          displayCount === 3 ? "btn btn-secondary active" : "btn btn-secondary"
+        }
         onClick={() => {
           setDisplayCount(3);
         }}
@@ -16,7 +18,9 @@ export default function CityDisplayCount() {
       </button>
       <button
         type="button"
-        className="btn btn-secondary"
+        className={
+          displayCount === 5 ? "btn btn-secondary active" : "btn btn-secondary"
+        }
         onClick={() => {
           setDisplayCount(5);
         }}
@@ -25,9 +29,10 @@ export default function CityDisplayCount() {
       </button>
       <button
         type="button"
-        className="btn btn-secondary"
+        className={
+          displayCount === 10 ? "btn btn-secondary active" : "btn btn-secondary"
+        }
         onClick={() => {
-          //setResourceCityList(fetchCityListData(10));
           setDisplayCount(10);
         }}
       >

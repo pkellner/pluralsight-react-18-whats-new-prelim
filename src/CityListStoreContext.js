@@ -1,20 +1,21 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { fetchCityListData } from "./dataApi/fetchCityListData";
+import { DisplayCountContext } from "./DisplayCountContext";
 
 export const CityListStoreContext = createContext();
 
-function CityListStoreProvider({ children, initialDisplayCount }) {
-  const initialResource = fetchCityListData(initialDisplayCount);
+function CityListStoreProvider({ children }) {
+  const { displayCount } = useContext(DisplayCountContext);
+  const initialResource = fetchCityListData(displayCount);
   const [resourceCityList, setResourceCityList] = useState(initialResource);
 
-  const setDisplayCount = (displayCount) => {
+  useEffect(() => {
     setResourceCityList(fetchCityListData(displayCount));
-  };
+  }, [displayCount]);
 
   const getCities = resourceCityList.cities.read;
 
   const contextValue = {
-    setDisplayCount,
     getCities,
   };
 

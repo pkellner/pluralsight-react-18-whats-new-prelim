@@ -49,15 +49,15 @@ function CityLocation() {
 export default function CityDetail() {
   return (
     <>
-      <Suspense fallback={<div className="padding-fix">Loading CityInfo...</div>}>
+      <Suspense fallback={<div className="list-group-item">Loading...</div>}>
         <CityInfo />
       </Suspense>
 
-      <Suspense fallback={<div className="padding-fix">Loading CityStats...</div>}>
+      <Suspense fallback={<div className="list-group-item">Loading...</div>}>
         <CityStats />
       </Suspense>
 
-      <Suspense fallback={<div className="padding-fix">Loading CityLocation...</div>}>
+      <Suspense fallback={<div className="list-group-item">Loading...</div>}>
         <CityLocation />
       </Suspense>
     </>

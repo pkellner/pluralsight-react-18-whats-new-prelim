@@ -13,9 +13,9 @@ export default function CityListAndDetail() {
         <CityDisplayCount />
         {/* <CityHeader /> */}
         <div className="row">
-          <Suspense fallback={<div>Loading CityList...</div>}>
+          <Suspense fallback={<div>Loading...</div>}>
             <CityList>
-              <Suspense fallback={<div>Loading CityDetail...</div>}>
+              <Suspense fallback={<div>Loading...</div>}>
                 <CityDetail />
               </Suspense>
             </CityList>

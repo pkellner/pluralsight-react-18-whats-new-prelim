@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import { fetchCityListData } from "./fakeApi/fetchCityListData";
+import { fetchCityListData } from "./dataApi/fetchCityListData";
 
 export const CityListStoreContext = createContext();
 

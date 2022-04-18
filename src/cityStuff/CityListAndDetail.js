@@ -6,9 +6,9 @@ import CityDisplayCount from "./CityDisplayCount";
 
 export default function CityListAndDetail() {
   return (
-    <CityListStoreProvider initialDisplayCount={5}>
+    <CityListStoreProvider initialDisplayCount={3}>
       <div className="container">
-        <h2>Suspense in React 18 (Course)</h2>
+        <h2>Suspense in React 18 (Pluralsight Course)</h2>
         <CityDisplayCount />
         <div className="row">
           <Suspense fallback={<div>Loading...</div>}>

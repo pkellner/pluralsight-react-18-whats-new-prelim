@@ -22,7 +22,10 @@ function CityStats() {
   return (
     <ul className="list-group list-group-horizontal">
       <li className="list-group-item city-meta">
-        Population: <span className="badge">{parseInt(data.population).toLocaleString("en-US")}</span>
+        Population:{" "}
+        <span className="badge">
+          {parseInt(data.population).toLocaleString("en-US")}
+        </span>
       </li>
       <li className="list-group-item city-meta">
         Growth since 2001: <span className="badge">{data.growth}</span>
@@ -49,15 +52,21 @@ function CityLocation() {
 export default function CityDetail() {
   return (
     <>
-      <Suspense fallback={<div className="list-group-item city-meta">Loading...</div>}>
+      <Suspense
+        fallback={<div className="list-group-item city-meta">Loading...</div>}
+      >
         <CityInfo />
       </Suspense>
 
-      <Suspense fallback={<div className="list-group-item city-meta">Loading...</div>}>
+      <Suspense
+        fallback={<div className="list-group-item city-meta">Loading...</div>}
+      >
         <CityStats />
       </Suspense>
 
-      <Suspense fallback={<div className="list-group-item city-meta">Loading...</div>}>
+      <Suspense
+        fallback={<div className="list-group-item city-meta">Loading...</div>}
+      >
         <CityLocation />
       </Suspense>
     </>

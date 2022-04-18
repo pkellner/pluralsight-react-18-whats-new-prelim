@@ -47,4 +47,3 @@ const fetchCities = (displayCount) => {
     }, 2000);
   });
 };
-

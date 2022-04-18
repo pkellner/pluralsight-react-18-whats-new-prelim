@@ -57,7 +57,7 @@ const fetchCityInfo = (cityId) => {
               state: rec.state,
             };
           })[0]
-      )
+      );
     }, 2000);
   });
 };
@@ -75,7 +75,7 @@ const fetchCityStats = (cityId) => {
               growth: rec.growth_from_2000_to_2013,
             };
           })[0]
-      )
+      );
     }, 2500);
   });
 };
@@ -93,7 +93,7 @@ const fetchCityLocation = (cityId) => {
               longitude: rec.longitude,
             };
           })[0]
-      )
+      );
     }, 1500);
   });
 };

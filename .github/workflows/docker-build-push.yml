@@ -2,7 +2,7 @@ name: whats-new-prelim
 
 on:
   push:
-    branches: main
+    branches: main,feature-ispending
     paths:
       -  '**.*'
       -  '.github/workflows/docker-build-push.yml'
@@ -27,7 +27,7 @@ jobs:
       - name: Image digest
         run: |
           echo "One or more files in design folder changed in branch psreact18whatsnew"
-          RELEASEVERSION=1.06
+          RELEASEVERSION=1.07
           # RELEASEVERSION=$(cat version.txt)
           # https://github.community/t/wanting-to-add-a-build-date-and-time-to-my-github-action/220185/6'
           #

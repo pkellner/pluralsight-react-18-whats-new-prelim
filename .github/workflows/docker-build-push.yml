@@ -2,7 +2,7 @@ name: whats-new-prelim
 
 on:
   push:
-    branches: feature-ispending
+    branches: main
     paths:
       -  '**.*'
       -  '.github/workflows/docker-build-push.yml'

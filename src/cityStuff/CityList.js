@@ -7,7 +7,7 @@ import {
 } from "../CityDetailStoreContext";
 
 function CityButton({ city }) {
-  const { setCityId } = useContext(CityDetailStoreContext);
+  const { setCityId, setShowCityDetails } = useContext(CityDetailStoreContext);
   return (
     <button
       className="list-group-item list-group-item-action"
@@ -22,13 +22,18 @@ function CityButton({ city }) {
 }
 
 export default function CityList({ children }) {
-  const { getCities } = useContext(CityListStoreContext);
+  const { getCities, isPending } = useContext(CityListStoreContext);
   const cities = getCities();
+  
+  
+  
   return (
     <CityDetailStoreProvider initialCityId={cities[0].id}>
       <div className="col-3">
         <ul className="list-group city--list">
-          <li className="list-group-item active city--header">City list</li>
+          <li className="list-group-item active city--header">
+            City list {isPending ? "updating..." : ""}
+          </li>
           {cities.map((city) => {
             return (
               <Fragment key={city.id}>

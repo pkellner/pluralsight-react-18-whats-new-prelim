@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useTransition,
+} from "react";
 import { fetchCityListData } from "./dataApi/fetchCityListData";
 import { DisplayCountContext } from "./DisplayCountContext";
 
@@ -9,14 +15,19 @@ function CityListStoreProvider({ children }) {
   const initialResource = fetchCityListData(displayCount);
   const [resourceCityList, setResourceCityList] = useState(initialResource);
 
+  const [isPending, startTransition] = useTransition();
+
   useEffect(() => {
-    setResourceCityList(fetchCityListData(displayCount));
+    startTransition(() => {
+      setResourceCityList(fetchCityListData(displayCount));
+    });
   }, [displayCount]);
 
   const getCities = resourceCityList.cities.read;
 
   const contextValue = {
     getCities,
+    isPending
   };
 
   return (

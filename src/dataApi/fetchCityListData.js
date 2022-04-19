@@ -27,13 +27,13 @@ function wrapPromise(promise) {
   return {
     read() {
       if (status === "pending") {
-        console.log(`status pending`);
+        //console.log(`status pending`);
         throw suspender;
       } else if (status === "error") {
-        console.log(`status error`);
+        //console.log(`status error`);
         throw result;
       } else if (status === "success") {
-        console.log(`status success`);
+        //console.log(`status success`);
         return result;
       }
     },

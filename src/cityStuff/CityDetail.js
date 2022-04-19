@@ -1,9 +1,12 @@
-import { Suspense, useContext } from "react";
+import { Suspense, useContext, useEffect } from "react";
 import { CityDetailStoreContext } from "../CityDetailStoreContext";
+import { CityListStoreContext } from "../CityListStoreContext";
+import { DisplayCountContext } from "../DisplayCountContext";
 
 function CityInfo() {
   const { getCityInfo } = useContext(CityDetailStoreContext);
   const data = getCityInfo();
+
   return (
     <ul className="list-group list-group-horizontal">
       <li className="list-group-item city-meta">
@@ -50,26 +53,53 @@ function CityLocation() {
 }
 
 export default function CityDetail() {
+  //const { displayCount, isPending } = useContext(DisplayCountContext);
+  // console.log(
+  //   `CityDetail: displayCount:${displayCount}   isPending:${
+  //     isPending ? "true" : "false"
+  //   }`
+  // );
+
+  const { isPending } = useContext(CityListStoreContext);
+
+  const { showCityDetails, setShowCityDetails, displayCount } =
+    useContext(DisplayCountContext);
+
+  console.log(
+    `CityDetail: showCityDetails: ${showCityDetails}   isPending: ${
+      isPending ? "true" : "false"
+    }`
+  );
+
+  useEffect(() => {
+    console.log(`CityDetail: setShowCityDetails to true`);
+    if (!isPending) {
+      setShowCityDetails(true);
+    }
+  }, [displayCount]);
+
   return (
-    <>
-      <Suspense
-        fallback={<div className="list-group-item city-meta">Loading...</div>}
-      >
-        <CityInfo />
-      </Suspense>
+    showCityDetails === true && (
+      <>
+        <Suspense
+          fallback={<div className="list-group-item city-meta">Loading...</div>}
+        >
+          <CityInfo />
+        </Suspense>
 
-      <Suspense
-        fallback={<div className="list-group-item city-meta">Loading...</div>}
-      >
-        <CityStats />
-      </Suspense>
+        <Suspense
+          fallback={<div className="list-group-item city-meta">Loading...</div>}
+        >
+          <CityStats />
+        </Suspense>
 
-      <Suspense
-        fallback={<div className="list-group-item city-meta">Loading...</div>}
-      >
-        <CityLocation />
-      </Suspense>
-    </>
+        <Suspense
+          fallback={<div className="list-group-item city-meta">Loading...</div>}
+        >
+          <CityLocation />
+        </Suspense>
+      </>
+    )
   );
 }
 

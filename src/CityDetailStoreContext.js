@@ -9,6 +9,7 @@ function CityDetailStoreProvider({ children, initialCityId }) {
     fetchCityDetailData(initialCityId)
   );
 
+
   const { getCities } = useContext(CityListStoreContext);
   const cities = getCities();
 
@@ -29,6 +30,7 @@ function CityDetailStoreProvider({ children, initialCityId }) {
     getCityInfo,
     getCityStats,
     getCityLocation,
+   
   };
 
   return (

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { DisplayCountContext } from "../DisplayCountContext";
 
 export default function CityDisplayCount() {
-  const { displayCount, setDisplayCount } = useContext(DisplayCountContext);
+  const { displayCount, setDisplayCount, setShowCityDetails } = useContext(DisplayCountContext);
   return (
     <div className="btn-group" role="group" aria-label="Basic example">
       <button
@@ -12,6 +12,7 @@ export default function CityDisplayCount() {
         }
         onClick={() => {
           setDisplayCount(3);
+          setShowCityDetails(false);
         }}
       >
         3
@@ -23,6 +24,7 @@ export default function CityDisplayCount() {
         }
         onClick={() => {
           setDisplayCount(5);
+          setShowCityDetails(false);
         }}
       >
         5
@@ -34,6 +36,7 @@ export default function CityDisplayCount() {
         }
         onClick={() => {
           setDisplayCount(10);
+          setShowCityDetails(false);
         }}
       >
         10

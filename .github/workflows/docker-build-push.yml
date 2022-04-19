@@ -27,7 +27,7 @@ jobs:
       - name: Image digest
         run: |
           echo "One or more files in design folder changed in branch psreact18whatsnew"
-          RELEASEVERSION=1.08
+          RELEASEVERSION=1.09
           # RELEASEVERSION=$(cat version.txt)
           # https://github.community/t/wanting-to-add-a-build-date-and-time-to-my-github-action/220185/6'
           #

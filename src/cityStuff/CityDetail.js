@@ -53,29 +53,16 @@ function CityLocation() {
 }
 
 export default function CityDetail() {
-  //const { displayCount, isPending } = useContext(DisplayCountContext);
-  // console.log(
-  //   `CityDetail: displayCount:${displayCount}   isPending:${
-  //     isPending ? "true" : "false"
-  //   }`
-  // );
-
   const { isPending } = useContext(CityListStoreContext);
 
-  const { showCityDetails, setShowCityDetails, displayCount } =
+  const { showCityDetails, setShowCityDetails } =
     useContext(DisplayCountContext);
-
-  // console.log(
-  //   `CityDetail: showCityDetails: ${showCityDetails}   isPending: ${
-  //     isPending ? "true" : "false"
-  //   }`
-  // );
-
+  
   useEffect(() => {
     if (!isPending) {
       setShowCityDetails(true);
     }
-  }, [displayCount]);
+  },[isPending,setShowCityDetails]);
 
   return (
     showCityDetails === true && (

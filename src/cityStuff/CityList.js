@@ -25,8 +25,6 @@ export default function CityList({ children }) {
   const { getCities, isPending } = useContext(CityListStoreContext);
   const cities = getCities();
   
-  
-  
   return (
     <CityDetailStoreProvider initialCityId={cities[0].id}>
       <div className="col-3">

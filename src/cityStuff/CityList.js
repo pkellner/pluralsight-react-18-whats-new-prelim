@@ -7,7 +7,7 @@ import {
 } from "../CityDetailStoreContext";
 
 function CityButton({ city }) {
-  const { setCityId, setShowCityDetails } = useContext(CityDetailStoreContext);
+  const { setCityId } = useContext(CityDetailStoreContext);
   return (
     <button
       className="list-group-item list-group-item-action"

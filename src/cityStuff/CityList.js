@@ -31,7 +31,7 @@ export default function CityList({ children }) {
     <CityDetailStoreProvider initialCityId={cities[0].id}>
       <div className="col-3">
         <ul className="list-group city--list">
-          <li className="list-group-item active city--header">
+          <li className="list-group-item city--header">
             City list {isPending ? "updating..." : ""}
           </li>
           {cities.map((city) => {
@@ -45,7 +45,7 @@ export default function CityList({ children }) {
       </div>
       <div className="col-9">
         <div className="city--details">
-          <div className="list-group-item active city--header">
+          <div className="list-group-item  city--header">
             City details
           </div>
           {children}

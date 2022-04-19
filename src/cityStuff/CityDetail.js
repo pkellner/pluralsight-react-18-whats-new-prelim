@@ -65,14 +65,13 @@ export default function CityDetail() {
   const { showCityDetails, setShowCityDetails, displayCount } =
     useContext(DisplayCountContext);
 
-  console.log(
-    `CityDetail: showCityDetails: ${showCityDetails}   isPending: ${
-      isPending ? "true" : "false"
-    }`
-  );
+  // console.log(
+  //   `CityDetail: showCityDetails: ${showCityDetails}   isPending: ${
+  //     isPending ? "true" : "false"
+  //   }`
+  // );
 
   useEffect(() => {
-    console.log(`CityDetail: setShowCityDetails to true`);
     if (!isPending) {
       setShowCityDetails(true);
     }

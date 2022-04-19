@@ -7,7 +7,6 @@
 
   --heading-font-size: 2rem;
   --city-heading-font-size: 1.25rem;
-
 }
 
 body {
@@ -19,7 +18,8 @@ body {
   background-color: #e8ecf5;
 }
 
-.city--list, .city--details {
+.city--list,
+.city--details {
   min-height: 60vh;
   max-height: 60vh;
   overflow: auto;
@@ -43,12 +43,25 @@ body {
   border-radius: 0 !important;
 }
 
+/*.list-group-item title-row {*/
+/*  background-color: #0d6efdb3*/
+/*}*/
+
+.city--header {
+  background-color: rgba(13, 110, 253, 0.69);
+  color: white
+}
+
+.city--selected-row {
+  background-color: #0D6EFD6F;
+}
+
 .city--details ul > * {
   border-bottom: 0px;
 }
 
 .city--details ul:last-child > * {
-  border-bottom: 1px solid rgba(0,0,0,.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .city-meta {
@@ -65,7 +78,7 @@ body {
 }
 
 .padding-fix {
-  padding: 1rem 0.5rem ;
+  padding: 1rem 0.5rem;
 }
 
 .list-group-item-action:active,
